@@ -1,0 +1,305 @@
+/* ════════════════════════════════════════════════════════════════════
+   Tweak modes — three aesthetics × three palettes × two densities
+   Each set wholesale-overrides the design tokens so the feel actually shifts.
+   ════════════════════════════════════════════════════════════════════ */
+
+/* ─── MODE: instrument (default, baseline tokens from styles.css) ─────
+   Already defined on :root — kept here as a no-op for clarity. */
+
+/* ─── MODE: notes — warm cream paper, serif-led, sepia ink ─────────── */
+.app[data-mode="notes"] {
+  --bg: #F4ECD8;
+  --surface: #FBF6E7;
+  --surface-2: #F1E8CC;
+  --surface-3: #EADFBE;
+  --border: rgba(56,40,18,0.12);
+  --border-strong: rgba(56,40,18,0.22);
+  --ink-1: #2A2114;
+  --ink-2: #4A3D2B;
+  --ink-3: #7A6A52;
+  --ink-4: #A89A82;
+}
+.app[data-mode="notes"] body,
+.app[data-mode="notes"] {
+  font-family: var(--font-display);
+}
+.app[data-mode="notes"] .editor textarea,
+.app[data-mode="notes"] .field-input,
+.app[data-mode="notes"] .metric-range,
+.app[data-mode="notes"] .metric-median,
+.app[data-mode="notes"] .editor-toolbar .count,
+.app[data-mode="notes"] .stat-cell .num,
+.app[data-mode="notes"] .factor-mult,
+.app[data-mode="notes"] .signal-state,
+.app[data-mode="notes"] .slider-labels { font-family: var(--font-mono); }
+
+.app[data-mode="notes"] .nav-tab,
+.app[data-mode="notes"] .step-pill h3,
+.app[data-mode="notes"] .metric-label,
+.app[data-mode="notes"] .pill-btn,
+.app[data-mode="notes"] .signal-name,
+.app[data-mode="notes"] .factor-label,
+.app[data-mode="notes"] .field-label,
+.app[data-mode="notes"] .bottom-head { font-family: var(--font-body); }
+
+.app[data-mode="notes"] .hero-title,
+.app[data-mode="notes"] .factors-head h2,
+.app[data-mode="notes"] .modal h2 {
+  font-style: italic;
+  font-weight: 500;
+}
+.app[data-mode="notes"] .panel,
+.app[data-mode="notes"] .hero-confidence,
+.app[data-mode="notes"] .metric-card,
+.app[data-mode="notes"] .bottom-bar,
+.app[data-mode="notes"] .stat-cell,
+.app[data-mode="notes"] .modal {
+  box-shadow: 0 1px 0 rgba(255,255,255,0.6) inset, 0 1px 2px rgba(56,40,18,0.04);
+}
+.app[data-mode="notes"] body::before,
+[data-mode="notes"] body::before { display: none; }
+.app[data-mode="notes"] {
+  background:
+    radial-gradient(ellipse 60% 60% at 90% 0%, rgba(176,116,32,0.07), transparent 65%),
+    radial-gradient(ellipse 70% 50% at 0% 100%, rgba(166,86,32,0.05), transparent 60%),
+    var(--bg);
+}
+.app[data-mode="notes"] .signals-foot,
+.app[data-mode="notes"] .metrics-foot,
+.app[data-mode="notes"] .factors-foot {
+  background-image: linear-gradient(90deg, rgba(56,40,18,0.18) 50%, transparent 50%);
+  background-size: 5px 1px;
+  background-repeat: repeat-x;
+  background-position: top;
+}
+.app[data-mode="notes"] .editor {
+  background: rgba(255,253,244,0.6);
+}
+
+/* ─── MODE: console — pure black terminal, phosphor green ─────────── */
+.app[data-mode="console"] {
+  --bg: #000000;
+  --surface: #050805;
+  --surface-2: #0A100A;
+  --surface-3: #0F180F;
+  --border: rgba(120,255,180,0.13);
+  --border-strong: rgba(120,255,180,0.25);
+  --ink-1: #D6FFE3;
+  --ink-2: #93D9A8;
+  --ink-3: #5C8E6D;
+  --ink-4: #3C5E48;
+}
+.app[data-mode="console"] body,
+.app[data-mode="console"] { font-family: var(--font-mono); }
+.app[data-mode="console"] .hero-title { font-family: var(--font-mono); letter-spacing: -0.03em; font-weight: 500; }
+.app[data-mode="console"] .brand-title { font-family: var(--font-mono); letter-spacing: 0.02em; }
+.app[data-mode="console"] .factors-head h2,
+.app[data-mode="console"] .modal h2 { font-family: var(--font-mono); font-weight: 500; }
+.app[data-mode="console"] .nav-tab::after,
+.app[data-mode="console"] .factor-tab.on { border-bottom-color: var(--accent); }
+.app[data-mode="console"] body::before,
+.app[data-mode="console"] {
+  background:
+    radial-gradient(ellipse 60% 40% at 80% 0%, rgba(0,255,140,0.06), transparent 60%),
+    var(--bg);
+}
+.app[data-mode="console"] body::before { display: none; }
+.app[data-mode="console"] .panel,
+.app[data-mode="console"] .metric-card,
+.app[data-mode="console"] .hero-confidence,
+.app[data-mode="console"] .bottom-bar,
+.app[data-mode="console"] .modal {
+  border-radius: 4px;
+}
+.app[data-mode="console"] .pill-btn,
+.app[data-mode="console"] .field-input,
+.app[data-mode="console"] .segment,
+.app[data-mode="console"] .sample-chip,
+.app[data-mode="console"] .editor,
+.app[data-mode="console"] .factor-bar-wrap { border-radius: 3px; }
+.app[data-mode="console"] .hero-icon,
+.app[data-mode="console"] .metric-icon,
+.app[data-mode="console"] .signal-icon,
+.app[data-mode="console"] .step-n,
+.app[data-mode="console"] .ic { border-radius: 4px; }
+.app[data-mode="console"] .metric-range { letter-spacing: -0.02em; }
+.app[data-mode="console"] .nav-tab,
+.app[data-mode="console"] .field-label,
+.app[data-mode="console"] .signal-name,
+.app[data-mode="console"] .brand-sub,
+.app[data-mode="console"] .step-pill h3 { text-transform: uppercase; letter-spacing: 0.08em; }
+.app[data-mode="console"] .step-pill h3 { font-size: 13px; font-weight: 500; }
+.app[data-mode="console"] .hero-title { text-transform: uppercase; font-size: 34px; }
+.app[data-mode="console"] .editor textarea { color: var(--ink-1); }
+
+/* Scanline overlay for terminal */
+.app[data-mode="console"]::after {
+  content: ""; position: fixed; inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0,
+    transparent 2px,
+    rgba(120,255,180,0.025) 2px,
+    rgba(120,255,180,0.025) 3px
+  );
+  pointer-events: none;
+  z-index: 200;
+  mix-blend-mode: screen;
+}
+
+/* ────────────────────────────────────────────────────────────────────
+   CHROMA — palette families
+   ──────────────────────────────────────────────────────────────────── */
+
+/* glacier (default) lives in styles.css */
+
+.app[data-chroma="solar"] {
+  --accent: #F4B042;
+  --accent-2: #E8843B;
+  --accent-soft: rgba(244,176,66,0.13);
+  --likes: #FF6B5C;
+  --likes-soft: rgba(255,107,92,0.10);
+  --shares: #F4B042;
+  --shares-soft: rgba(244,176,66,0.10);
+  --comments: #E07AC9;
+  --comments-soft: rgba(224,122,201,0.10);
+  --pos: #F4B042;
+  --neg: #FF6B5C;
+  --warn: #FFD06E;
+}
+.app[data-chroma="botanic"] {
+  --accent: #7CC799;
+  --accent-2: #5B9E76;
+  --accent-soft: rgba(124,199,153,0.13);
+  --likes: #E27A5C;
+  --likes-soft: rgba(226,122,92,0.10);
+  --shares: #98B96B;
+  --shares-soft: rgba(152,185,107,0.10);
+  --comments: #B89A5B;
+  --comments-soft: rgba(184,154,91,0.10);
+  --pos: #7CC799;
+  --neg: #E27A5C;
+  --warn: #D9A95B;
+}
+
+/* Console mode forces phosphor regardless of chroma */
+.app[data-mode="console"] {
+  --accent: #6CFAA6;
+  --accent-2: #2EBB6C;
+  --accent-soft: rgba(108,250,166,0.10);
+  --likes: #FF8B9E;
+  --likes-soft: rgba(255,139,158,0.10);
+  --shares: #6CFAA6;
+  --shares-soft: rgba(108,250,166,0.10);
+  --comments: #C5A8FF;
+  --comments-soft: rgba(197,168,255,0.10);
+  --pos: #6CFAA6;
+  --neg: #FF8B9E;
+  --warn: #FFE066;
+}
+
+/* Notes mode dampens chroma — softer warm-paper feel */
+.app[data-mode="notes"][data-chroma="glacier"] {
+  --accent: #2E7BB8;
+  --accent-2: #1E5A8C;
+  --accent-soft: rgba(46,123,184,0.10);
+  --likes: #C04B5A;
+  --likes-soft: rgba(192,75,90,0.08);
+  --shares: #3E8C6E;
+  --shares-soft: rgba(62,140,110,0.08);
+  --comments: #7A5BB0;
+  --comments-soft: rgba(122,91,176,0.08);
+  --pos: #3E8C6E;
+  --neg: #C04B5A;
+  --warn: #B07820;
+}
+.app[data-mode="notes"][data-chroma="solar"] {
+  --accent: #B07820;
+  --accent-2: #8E5C18;
+  --accent-soft: rgba(176,120,32,0.10);
+  --likes: #C0492A;
+  --likes-soft: rgba(192,73,42,0.08);
+  --shares: #B07820;
+  --shares-soft: rgba(176,120,32,0.08);
+  --comments: #A04B7A;
+  --comments-soft: rgba(160,75,122,0.08);
+  --pos: #6E8E20;
+  --neg: #C0492A;
+  --warn: #B07820;
+}
+.app[data-mode="notes"][data-chroma="botanic"] {
+  --accent: #4D7A48;
+  --accent-2: #355A33;
+  --accent-soft: rgba(77,122,72,0.10);
+  --likes: #B0512E;
+  --likes-soft: rgba(176,81,46,0.08);
+  --shares: #5E8C3E;
+  --shares-soft: rgba(94,140,62,0.08);
+  --comments: #8B6E2C;
+  --comments-soft: rgba(139,110,44,0.08);
+  --pos: #5E8C3E;
+  --neg: #B0512E;
+  --warn: #B07820;
+}
+
+/* ────────────────────────────────────────────────────────────────────
+   PACE — calm (default) vs tight
+   ──────────────────────────────────────────────────────────────────── */
+
+.app[data-pace="tight"] .navbar { padding: 12px 24px; }
+.app[data-pace="tight"] .hero { padding: 22px 24px 18px; gap: 16px; }
+.app[data-pace="tight"] .hero-title { font-size: 30px; }
+.app[data-pace="tight"] .hero-sub { font-size: 12.5px; }
+.app[data-pace="tight"] .hero-icon { width: 44px; height: 44px; }
+.app[data-pace="tight"] .hero-confidence { padding: 10px 14px; min-width: 280px; }
+.app[data-pace="tight"] .main { padding: 16px 24px; gap: 16px; }
+.app[data-pace="tight"] .col { gap: 12px; }
+.app[data-pace="tight"] .panel { padding: 14px; border-radius: 12px; }
+.app[data-pace="tight"] .panel-head { margin-bottom: 12px; }
+.app[data-pace="tight"] .step-n { width: 20px; height: 20px; font-size: 11px; }
+.app[data-pace="tight"] .step-pill h3 { font-size: 14px; }
+.app[data-pace="tight"] .editor textarea { min-height: 140px; padding: 12px 14px; font-size: 12.5px; }
+.app[data-pace="tight"] .signals-grid { gap: 6px; }
+.app[data-pace="tight"] .signal-chip { padding: 8px 9px; }
+.app[data-pace="tight"] .signal-icon { width: 22px; height: 22px; }
+.app[data-pace="tight"] .signal-name { font-size: 11.5px; }
+.app[data-pace="tight"] .signal-state { font-size: 9.5px; }
+.app[data-pace="tight"] .context-grid { gap: 10px; }
+.app[data-pace="tight"] .field-input { padding: 6px 10px; font-size: 12px; }
+.app[data-pace="tight"] .segment button { padding: 5px 10px; font-size: 11.5px; }
+.app[data-pace="tight"] .metrics-row { gap: 10px; }
+.app[data-pace="tight"] .metric-card { padding: 12px 14px 4px; border-radius: 12px; }
+.app[data-pace="tight"] .metric-head { margin-bottom: 8px; gap: 6px; }
+.app[data-pace="tight"] .metric-icon { width: 24px; height: 24px; border-radius: 6px; }
+.app[data-pace="tight"] .metric-label { font-size: 11.5px; }
+.app[data-pace="tight"] .metric-range { font-size: 22px; }
+.app[data-pace="tight"] .metric-median { font-size: 10.5px; }
+.app[data-pace="tight"] .metric-spark { height: 32px; }
+.app[data-pace="tight"] .factor-row { padding: 8px 0; gap: 10px; }
+.app[data-pace="tight"] .factor-label { font-size: 12px; }
+.app[data-pace="tight"] .factor-sub { font-size: 10.5px; }
+.app[data-pace="tight"] .factor-mult { font-size: 12px; min-width: 50px; }
+.app[data-pace="tight"] .factor-tabs { margin-bottom: 10px; }
+.app[data-pace="tight"] .factors-head h2 { font-size: 18px; }
+.app[data-pace="tight"] .advice { gap: 8px; }
+.app[data-pace="tight"] .advice-card { padding: 10px 12px; gap: 8px; }
+.app[data-pace="tight"] .advice-body { font-size: 11.5px; }
+.app[data-pace="tight"] .bottom-bar { margin: 0 24px 24px; padding: 16px 20px; gap: 16px; }
+.app[data-pace="tight"] .bottom-head { font-size: 12.5px; }
+.app[data-pace="tight"] .bottom-block p { font-size: 11.5px; }
+.app[data-pace="tight"] .howit-step .ic { width: 30px; height: 30px; }
+.app[data-pace="tight"] .howit-step .lbl { font-size: 10.5px; }
+
+/* Background gradients respond to mode */
+body:has(.app[data-mode="instrument"])::before {
+  background:
+    radial-gradient(ellipse 60% 50% at 80% 0%, color-mix(in oklab, var(--accent) 18%, transparent), transparent 60%),
+    radial-gradient(ellipse 70% 40% at 0% 100%, color-mix(in oklab, var(--comments) 10%, transparent), transparent 60%);
+}
+body:has(.app[data-mode="notes"])::before { display: none; }
+body:has(.app[data-mode="notes"]) { background: var(--bg); }
+body:has(.app[data-mode="console"])::before {
+  background:
+    radial-gradient(ellipse 60% 40% at 80% 0%, color-mix(in oklab, var(--accent) 12%, transparent), transparent 60%);
+}
+body:has(.app[data-mode="console"]) { background: #000; }
