@@ -253,6 +253,30 @@ function Hero({ conf, setConf, onReset, onBack }) {
 function SimulatorView({ text, setText, ctx, setCtx, conf, setConf, pred, activeMetric, setActiveMetric, contextOpen, setContextOpen, onReset, onBack, setScreen, onCite }) {
   const advRef = useRef(null);
   const [showContext, setShowContext] = useState(false);
+
+  useEffect(() => {
+    if (pred.trivial || !window.SupabaseLogger) return;
+    window.SupabaseLogger.scheduleLog({
+      lang:           window.getLang(),
+      message_text:   text,
+      message_length: text.length,
+      user_type:      ctx.userType,
+      followers:      ctx.followers,
+      verified:       ctx.verified,
+      hour:           ctx.hour,
+      weekend:        ctx.weekend,
+      quarter:        ctx.quarter,
+      likes_low:      pred.Likes.low,    likes_high:    pred.Likes.high,    likes_med:    pred.Likes.med,
+      shares_low:     pred.Shares.low,   shares_high:   pred.Shares.high,   shares_med:   pred.Shares.med,
+      comments_low:   pred.Comments.low, comments_high: pred.Comments.high, comments_med: pred.Comments.med,
+      signal_inf:     !!pred.features.Inf, signal_pos:  !!pred.features.Pos,
+      signal_neg:     !!pred.features.Neg, signal_urg:  !!pred.features.Urg,
+      signal_inc:     !!pred.features.Inc,
+      hashtag_count:  pred.features.hash,
+      emoji_count:    pred.features.emoji,
+    });
+  }, [pred]);
+
   const scrollToAdvice = () => {
     const el = advRef.current;
     if (!el) return;
