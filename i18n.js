@@ -7,7 +7,7 @@
 
   const FR = {
     // ── Navbar / brand ─────────────────────────────
-    "Fundraising Engagement Lab": "Laboratoire d’Engagement en Collecte de Fonds",
+    "Fundraising Engagement Lab": "Fundraising Engagement Lab",
     "Social Impact Science": "Science de l’Impact Social",
     "Home": "Accueil",
     "Test a Post": "Tester un post",
