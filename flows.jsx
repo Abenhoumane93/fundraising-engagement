@@ -31,17 +31,17 @@ function buildDateOptions() {
 
   return [
   {
-    id: 'today', label: 'Today',
+    id: 'today', label: 'Weekday',
     sub: `${dowName(today)}, ${fmtDate(today)}`,
-    hint: 'Right now, in the current moment',
+    hint: 'Post on a weekday',
     weekend: today.getDay() === 0 || today.getDay() === 6,
     quarter: Math.floor(today.getMonth() / 3) + 1,
     hour: today.getHours()
   },
   {
-    id: 'weekend', label: 'This weekend',
+    id: 'weekend', label: 'Weekend',
     sub: `${dowName(sat)}, ${fmtDate(sat)}`,
-    hint: 'Weekend boost — +9% engagement',
+    hint: 'Post on weekend — +9% engagement',
     weekend: true,
     quarter: Math.floor(sat.getMonth() / 3) + 1,
     hour: 10
