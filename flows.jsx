@@ -27,23 +27,22 @@ function daysUntilNext(d, dow) {
 
 function buildDateOptions() {
   const today = new Date();
-  const sat = addDays(today, daysUntilNext(today, 6));
 
   return [
   {
     id: 'today', label: 'Weekday',
-    sub: `${dowName(today)}, ${fmtDate(today)}`,
+    sub: '',
     hint: 'Post on a weekday',
-    weekend: today.getDay() === 0 || today.getDay() === 6,
+    weekend: false,
     quarter: Math.floor(today.getMonth() / 3) + 1,
-    hour: today.getHours()
+    hour: 10
   },
   {
     id: 'weekend', label: 'Weekend',
-    sub: `${dowName(sat)}, ${fmtDate(sat)}`,
-    hint: 'Post on weekend — +9% engagement',
+    sub: '',
+    hint: 'Weekend boost — +9% engagement',
     weekend: true,
-    quarter: Math.floor(sat.getMonth() / 3) + 1,
+    quarter: Math.floor(today.getMonth() / 3) + 1,
     hour: 10
   }];
 
@@ -351,7 +350,7 @@ function TestFlow({ onExit, openSimulator, onCampaign, lang }) {
               {dateOptions.map((d) =>
               <button key={d.id} className={`date-option compact ${dateChoice === d.id ? 'on' : ''}`} onClick={() => setDateChoice(d.id)}>
                   <div className="date-label">{T(d.label)}</div>
-                  <div className="date-sub">{d.sub}</div>
+                  {d.sub && <div className="date-sub">{d.sub}</div>}
                 </button>
               )}
             </div>
